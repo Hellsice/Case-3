@@ -134,6 +134,7 @@ df_chargemap['AddressInfo.Postcode'] = df_chargemap['AddressInfo.Postcode'].str.
 merged = pd.read_csv('merged.csv')
 st.dataframe(merged)
 st.dataframe(df_chargemap)
+df_chargemap['AddressInfo.Postcode'].dropna()
 # df_chargemap = df_chargemap.merge(merged, left_on='AddressInfo.Postcode', right_on='PC6', how='left')
 
 # unique_chargemap = df_chargemap['AddressInfo.Town'].unique()
