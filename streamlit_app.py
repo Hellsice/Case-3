@@ -174,7 +174,7 @@ st.text("De gemiddelde en mediaan zijn berekend om te implementeren in de volgen
 st.text("")
 
 laadpaaldata = pd.read_csv('laadpaaldata.csv')
-print(laadpaaldata.isna().sum().sum()) # Geen NaN waardes te vinden in deze dataset
+# print(laadpaaldata.isna().sum().sum()) # Geen NaN waardes te vinden in deze dataset
 
 # De waarnemingen waarbij het opladen later begint dan eindigt verwijderen, dit is immers onmogelijk en wij hebben er geen goede verklaring voor
 laadpaaldata = laadpaaldata[laadpaaldata['Ended']>=laadpaaldata['Started']]
@@ -206,7 +206,7 @@ q_low_charge = laadpaaldata['ChargeTime'].quantile(0.35)
 q_hi_charge = laadpaaldata['ChargeTime'].quantile(0.965)
 laadpaaldata = laadpaaldata[(laadpaaldata["ChargeTime"] < q_hi_charge) & (laadpaaldata["ChargeTime"] > q_low_charge)]
 
-print(laadpaaldata.head())
+# print(laadpaaldata.head())
 st.dataframe(laadpaaldata)
 
 # Dubbel check of de uitschieters weg zijn
@@ -217,8 +217,8 @@ st.dataframe(laadpaaldata)
 
 gemiddelde = round(laadpaaldata['ChargeTime'].mean(), 4)
 mediaan = round(laadpaaldata['ChargeTime'].median(), 4)
-print('Gemiddelde: ' +str(int(gemiddelde))+ " uur en " +str(round((gemiddelde-int(gemiddelde))*60)) +" minuten")
-print('Mediaan: ' +str(int(mediaan))+ " uur en " +str(round((mediaan-int(mediaan))*60)) +" minuten")
+# print('Gemiddelde: ' +str(int(gemiddelde))+ " uur en " +str(round((gemiddelde-int(gemiddelde))*60)) +" minuten")
+# print('Mediaan: ' +str(int(mediaan))+ " uur en " +str(round((mediaan-int(mediaan))*60)) +" minuten")
 
 st.text('In onderstaand figuur is de verdeling te zien van de tijd dat een auto oplaadt.')
 st.text('Het gemiddelde en de mediaan verschillen weinig. Wel is er duidelijk te zien dat zich twee toppen vormen,')
