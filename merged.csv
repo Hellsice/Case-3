@@ -532,19 +532,19 @@
 530,5575,Bergeijk
 531,5563,Bergeijk
 532,5571,Bergeijk
-533,5851,Bergen (L.)
-534,5853,Bergen (L.)
-535,5856,Bergen (L.)
-536,5854,Bergen (L.)
-537,5855,Bergen (L.)
-538,1861,Bergen (NH.)
-539,1935,Bergen (NH.)
-540,1865,Bergen (NH.)
-541,1862,Bergen (NH.)
-542,1931,Bergen (NH.)
-543,1934,Bergen (NH.)
-544,1871,Bergen (NH.)
-545,1873,Bergen (NH.)
+533,5851,Bergen (L)
+534,5853,Bergen (L)
+535,5856,Bergen (L)
+536,5854,Bergen (L)
+537,5855,Bergen (L)
+538,1861,Bergen (NH)
+539,1935,Bergen (NH)
+540,1865,Bergen (NH)
+541,1862,Bergen (NH)
+542,1931,Bergen (NH)
+543,1934,Bergen (NH)
+544,1871,Bergen (NH)
+545,1873,Bergen (NH)
 546,4625,Bergen op Zoom
 547,4623,Bergen op Zoom
 548,4614,Bergen op Zoom
@@ -1602,15 +1602,15 @@
 1600,3342,Hendrik-Ido-Ambacht
 1601,3341,Hendrik-Ido-Ambacht
 1602,3344,Hendrik-Ido-Ambacht
-1603,7553,Hengelo
-1604,7551,Hengelo
-1605,7554,Hengelo
-1606,7555,Hengelo
-1607,7557,Hengelo
-1608,7556,Hengelo
-1609,7559,Hengelo
-1610,7558,Hengelo
-1611,7552,Hengelo
+1603,7553,Hengelo (O)
+1604,7551,Hengelo (O)
+1605,7554,Hengelo (O)
+1606,7555,Hengelo (O)
+1607,7557,Hengelo (O)
+1608,7556,Hengelo (O)
+1609,7559,Hengelo (O)
+1610,7558,Hengelo (O)
+1611,7552,Hengelo (O)
 1612,9951,Het Hogeland
 1613,9953,Het Hogeland
 1614,9962,Het Hogeland
@@ -3692,10 +3692,10 @@
 3690,6001,Weert
 3691,6003,Weert
 3692,6006,Weert
-3693,1383,Weesp
-3694,1381,Weesp
-3695,1384,Weesp
-3696,1382,Weesp
+3693,1383,Amsterdam
+3694,1381,Amsterdam
+3695,1384,Amsterdam
+3696,1382,Amsterdam
 3697,4191,West Betuwe
 3698,4176,West Betuwe
 3699,4181,West Betuwe
