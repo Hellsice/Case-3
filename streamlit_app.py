@@ -131,7 +131,7 @@ df_chargemap = df_chargemap.dropna(axis=1, how='all')
 
 df_chargemap['AddressInfo.Postcode'] = df_chargemap['AddressInfo.Postcode'].str.replace(r'\D', '', regex=True)
 
-df_chargemap['AddressInfo.Postcode'].dropna()
+df_chargemap = df_chargemap[df_chargemap['AddressInfo.Postcode'].notna()]
 merged = pd.read_csv('merged.csv')
 st.dataframe(merged)
 st.dataframe(df_chargemap)
