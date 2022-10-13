@@ -274,7 +274,6 @@ fig3.update_layout(yaxis_title="Aantal laadpalen")
 st.plotly_chart(fig3)
 
 # Groeperen op maand en de totale laad en connected time berekenen --> verwerken in een barplot
-import calendar
 laadtijd_per_maand = laadpaaldata.groupby('Maand')['ChargeTime', "ConnectedTime"].sum().reset_index()
 laadtijd_per_maand['Maand'] = laadtijd_per_maand['Maand'].astype(int)
 laadtijd_per_maand['Maand'] = laadtijd_per_maand['Maand'].apply(lambda x: calendar.month_abbr[x])
