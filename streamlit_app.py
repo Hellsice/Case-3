@@ -118,25 +118,25 @@ st.plotly_chart(fig2)
 
 st.subheader('Chargemap') 
 
-maxresults=10000
-url_chargemap = ("https://api.openchargemap.io/v3/poi?key=a386a50f-1e5d-4021-baaf-868394bc33e9/?output=json&countrycode=NL&maxresults="+str(maxresults))
-response_chargemap = requests.get(url_chargemap)
-json_chargemap = response_chargemap.json()
-df_chargemap = pd.json_normalize(json_chargemap)
+# maxresults=10000
+# url_chargemap = ("https://api.openchargemap.io/v3/poi?key=a386a50f-1e5d-4021-baaf-868394bc33e9/?output=json&countrycode=NL&maxresults="+str(maxresults))
+# response_chargemap = requests.get(url_chargemap)
+# json_chargemap = response_chargemap.json()
+# df_chargemap = pd.json_normalize(json_chargemap)
 
-columns = ['Operator', 'Comments', 'DataProvider', 'PercentageSimilarity', 'MediaItems']
-for i in columns:
-    df_chargemap = df_chargemap[df_chargemap.columns.drop(list(df_chargemap.filter(regex=i)))]
-df_chargemap = df_chargemap.dropna(axis=1, how='all')
+# columns = ['Operator', 'Comments', 'DataProvider', 'PercentageSimilarity', 'MediaItems']
+# for i in columns:
+#     df_chargemap = df_chargemap[df_chargemap.columns.drop(list(df_chargemap.filter(regex=i)))]
+# df_chargemap = df_chargemap.dropna(axis=1, how='all')
 
-df_chargemap['AddressInfo.Postcode'] = df_chargemap['AddressInfo.Postcode'].str.replace(r'\D', '', regex=True)
+# df_chargemap['AddressInfo.Postcode'] = df_chargemap['AddressInfo.Postcode'].str.replace(r'\D', '', regex=True)
 
-df_chargemap = df_chargemap[df_chargemap['AddressInfo.Postcode'].notna()]
+# df_chargemap = df_chargemap[df_chargemap['AddressInfo.Postcode'].notna()]
 merged = pd.read_csv('merged.csv')
 st.dataframe(merged)
 st.dataframe(df_chargemap)
-
-df_chargemap = df_chargemap.merge(merged, left_on='AddressInfo.Postcode', right_on='PC6', how='left')
+df_chargemap = pd.read_csv('Chargemap data.csv')
+# df_chargemap = df_chargemap.merge(merged, left_on='AddressInfo.Postcode', right_on='PC6', how='left')
 
 unique_chargemap = df_chargemap['AddressInfo.Town'].unique()
 gemeenten = gemeente_codes['Gemeentenaam'].unique()
