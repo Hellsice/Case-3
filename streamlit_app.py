@@ -42,7 +42,7 @@ st.title('2022-2023 sem-1 Case 3: Dashboard')
 st.header('Elektrisch mobiliteit en laadpalen')
 st.subheader(' Team 7: Olger, Bart, Annika, Estelle') 
 ##### Inleidende tekst 
-st.text('In dit dashboard hebben wij gebruik gemaakt van de datasets OpenChargeMap, laadpaalgebruik en aantallen elektrische auto’s.')
+st.markdown('In dit dashboard hebben wij gebruik gemaakt van de datasets OpenChargeMap, laadpaalgebruik en aantallen elektrische auto’s.')
 st.markdown('Hiermee hebben wij verbanden kunnen leggen over de toename van elektrische autos, tijd dat elektrische auto’s aan de laadpaal zitten.')
 
 
@@ -54,11 +54,11 @@ df = pd.read_csv('voertuigen.csv')
 df = df.drop(columns=['Unnamed: 0'])
 
 
-st.text('De data over het onderwerp aantal elektrische autos is afkomstig van de website opendata.rdw')
-st.text('Hieruit zijn er twee datasets gedownload voor gebruik. De ene over elektrische autos en ander over brandstof gebruik.')
-st.text('Deze twee datasets zijn samengevoegd tot de nieuwe opgeschoonde dataset: "Open bezine"')
-st.text('Doormiddel van functie zijn er extra kolomen aan toegevoegd.')
-st.text('Zie hier dataset hieronder')
+st.markdown('De data over het onderwerp aantal elektrische autos is afkomstig van de website opendata.rdw')
+st.markdown('Hieruit zijn er twee datasets gedownload voor gebruik. De ene over elektrische autos en ander over brandstof gebruik.')
+st.markdown('Deze twee datasets zijn samengevoegd tot de nieuwe opgeschoonde dataset: "Open bezine"')
+st.markdown('Doormiddel van functie zijn er extra kolomen aan toegevoegd.')
+st.markdown('Zie hier dataset hieronder')
 
 st.dataframe(df)
 
@@ -66,9 +66,9 @@ st.dataframe(df)
 # In[5]:
 
 
-st.text('Vanuit deze "Open bezine" dataset zijn er visualisaties gemaakt.')
-st.text('Figuur hieronder bevat een cumulatieve lijndiagram van het aantal voertuigen per maand per brandstof categorie.')
-st.text('Zoals te zien blijkt het aantal elektische voertuigen in de loop van de jaren meer toeneemt dan over brandstog categorien')
+st.markdown('Vanuit deze "Open bezine" dataset zijn er visualisaties gemaakt.')
+st.markdown('Figuur hieronder bevat een cumulatieve lijndiagram van het aantal voertuigen per maand per brandstof categorie.')
+st.markdown('Zoals te zien blijkt het aantal elektische voertuigen in de loop van de jaren meer toeneemt dan over brandstog categorien')
 
 
 ### grafiek 1 maken:
@@ -90,9 +90,9 @@ st.plotly_chart(fig1)
 ##Dataset met alleen elektrische auto's : df_elek
 df_elek = df[(df['Brandstof omschrijving']=='Elektriciteit')]
 
-st.text('Figuur hieronder bevat gegevens over de aanschaf elekrische autos over de jaren heen weer')
-st.text('Door onder aan het figuur de slider te gebruiken kan er gezien worden welke auto merk in dat jaar erbij is gekomen')
-st.text('Weer valt er op te merken dat er veel meer elektrische autos in de laatste jaren toeneemt')
+st.markdown('Figuur hieronder bevat gegevens over de aanschaf elekrische autos over de jaren heen weer')
+st.markdown('Door onder aan het figuur de slider te gebruiken kan er gezien worden welke auto merk in dat jaar erbij is gekomen')
+st.markdown('Weer valt er op te merken dat er veel meer elektrische autos in de laatste jaren toeneemt')
 ## Figuur 2: Aanschaf elektishce autos over de tijd
 fig2 = px.bar(data_frame=df_elek,   
                  x='Merk',  
@@ -164,14 +164,14 @@ st_data = folium_static(map)
 
 
 st.subheader('Laadpaaldata') 
-st.text("Om de date op te schonen en overzichtelijk te maken hebben we de volgende bewerkingen uitgevoerd:")
-st.text("Allereerst hebben we alle NA-waardes verwijderd.")
-st.text("Vervolgens hebben we alle datums omgezet naar datetime format.")
-st.text("Toen hebben we gegekeken of de aangesloten uren volgens de Ended-Started time wel overeen kwamen,")
-st.text("hierbij waren er 5 erg afwijkend, dus hebben we deze verwijderd.")
-st.text("Hevige 'uitschieters' hebben we verwijderd om de meest voorkomende oplaadtijden te kunnen plotten voor een beter overzicht")
-st.text("De gemiddelde en mediaan zijn berekend om te implementeren in de volgende figuren.")
-st.text("")
+st.markdown("Om de date op te schonen en overzichtelijk te maken hebben we de volgende bewerkingen uitgevoerd:")
+st.markdown("Allereerst hebben we alle NA-waardes verwijderd.")
+st.markdown("Vervolgens hebben we alle datums omgezet naar datetime format.")
+st.markdown("Toen hebben we gegekeken of de aangesloten uren volgens de Ended-Started time wel overeen kwamen,")
+st.markdown("hierbij waren er 5 erg afwijkend, dus hebben we deze verwijderd.")
+st.markdown("Hevige 'uitschieters' hebben we verwijderd om de meest voorkomende oplaadtijden te kunnen plotten voor een beter overzicht")
+st.markdown("De gemiddelde en mediaan zijn berekend om te implementeren in de volgende figuren.")
+st.markdown("")
 
 laadpaaldata = pd.read_csv('laadpaaldata.csv')
 # print(laadpaaldata.isna().sum().sum()) # Geen NaN waardes te vinden in deze dataset
@@ -220,9 +220,9 @@ mediaan = round(laadpaaldata['ChargeTime'].median(), 4)
 # print('Gemiddelde: ' +str(int(gemiddelde))+ " uur en " +str(round((gemiddelde-int(gemiddelde))*60)) +" minuten")
 # print('Mediaan: ' +str(int(mediaan))+ " uur en " +str(round((mediaan-int(mediaan))*60)) +" minuten")
 
-st.text('In onderstaand figuur is de verdeling te zien van de tijd dat een auto oplaadt.')
-st.text('Het gemiddelde en de mediaan verschillen weinig. Wel is er duidelijk te zien dat zich twee toppen vormen,')
-st.text("een bimodale normale verdeling waarschijnlijk. De meeste auto's laden iets meer dan 2 uur op.")
+st.markdown('In onderstaand figuur is de verdeling te zien van de tijd dat een auto oplaadt.')
+st.markdown('Het gemiddelde en de mediaan verschillen weinig. Wel is er duidelijk te zien dat zich twee toppen vormen,')
+st.markdown("een bimodale normale verdeling waarschijnlijk. De meeste auto's laden iets meer dan 2 uur op.")
 
 fig3 = px.histogram(laadpaaldata, x="ChargeTime", nbins=40, text_auto=True,
             title='Aantal laadpalen per oplaadtijd',
@@ -278,8 +278,8 @@ laadtijd_per_maand = laadpaaldata.groupby('Maand')['ChargeTime', "ConnectedTime"
 laadtijd_per_maand['Maand'] = laadtijd_per_maand['Maand'].astype(int)
 laadtijd_per_maand['Maand'] = laadtijd_per_maand['Maand'].apply(lambda x: calendar.month_abbr[x])
 
-st.text('In onderstaand figuur is een duidelijk verschil te zien in de tijd van aansluiten en daadwerkelijk opladen.')
-st.text("De auto's staan in totaal vaak twee keer zo lang aangesloten als dat ze aan het opladen zijn.")
+st.markdown('In onderstaand figuur is een duidelijk verschil te zien in de tijd van aansluiten en daadwerkelijk opladen.')
+st.markdown("De auto's staan in totaal vaak twee keer zo lang aangesloten als dat ze aan het opladen zijn.")
 
 fig4 = go.Figure()
 fig4.add_trace(go.Bar(x=laadtijd_per_maand["Maand"], y=laadtijd_per_maand["ChargeTime"], name="Oplaadtijd"))
@@ -311,15 +311,15 @@ st.plotly_chart(fig4)
 
 
 st.subheader("Voorspelling aantal elektrische auto's") 
-st.text("Doormiddel van de variabelen in de datasets is er een voorspelling gedaan over het aantal elektrische auto's.")
-st.text('Dit hebben wij kunnen doen door bepaalde gegevens te voorspellen en uit te zetten over de jaren later')
-st.text("Uit de figuur hieronder blijkt dat het aantal elektrische auto's tot met 2030 zal toenemen'")
-st.text('De blauwe bolletjes geven de echte waardes aan in de jaren die al gegeven zijn')
-st.text('De blauwe lijn geeft het gemiddelde aan door de blauwe bolletjes')
-st.text('Om te voorspellen wat er in de jaren na de blauwe bolletjes gebeurt,')
-st.text('zijn er "predictions" gemaakt die zijn gebaseerd op de gegeven punten')
-st.text('De rode bolletjes vormen de voorspelling in de toekomst')
-st.text("Hieruit zal blijken dat de aanschaf van elektrische auto's toeneemt in de toekomst")
+st.markdown("Doormiddel van de variabelen in de datasets is er een voorspelling gedaan over het aantal elektrische auto's.")
+st.markdown('Dit hebben wij kunnen doen door bepaalde gegevens te voorspellen en uit te zetten over de jaren later')
+st.markdown("Uit de figuur hieronder blijkt dat het aantal elektrische auto's tot met 2030 zal toenemen'")
+st.markdown('De blauwe bolletjes geven de echte waardes aan in de jaren die al gegeven zijn')
+st.markdown('De blauwe lijn geeft het gemiddelde aan door de blauwe bolletjes')
+st.markdown('Om te voorspellen wat er in de jaren na de blauwe bolletjes gebeurt,')
+st.markdown('zijn er "predictions" gemaakt die zijn gebaseerd op de gegeven punten')
+st.markdown('De rode bolletjes vormen de voorspelling in de toekomst')
+st.markdown("Hieruit zal blijken dat de aanschaf van elektrische auto's toeneemt in de toekomst")
 
 # Create sqrt_dist_to_mrt_m
 
