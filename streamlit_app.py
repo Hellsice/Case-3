@@ -139,9 +139,9 @@ st.dataframe(df_chargemap)
 
 # df_chargemap = df_chargemap.merge(merged, left_on='AddressInfo.Postcode', right_on='PC6', how='left')
 
-unique_chargemap = df_chargemap['AddressInfo.Town'].unique()
-gemeenten = gemeente_codes['Gemeentenaam'].unique()
-unique_gemeenten = [x for x in unique_chargemap if x in gemeenten]
+# unique_chargemap = df_chargemap['AddressInfo.Town'].unique()
+# gemeenten = gemeente_codes['Gemeentenaam'].unique()
+# unique_gemeenten = [x for x in unique_chargemap if x in gemeenten]
 
 
 map = folium.Map(location = [52.2129919, 5.2793703], zoom_start=7, tiles=None)
