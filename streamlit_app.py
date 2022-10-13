@@ -132,31 +132,32 @@ df_chargemap = df_chargemap.dropna(axis=1, how='all')
 df_chargemap['AddressInfo.Postcode'] = df_chargemap['AddressInfo.Postcode'].str.replace(r'\D', '', regex=True)
 
 merged = pd.read_csv('merged.csv')
+st.dataframe(merged)
+st.dataframe(df_chargemap)
+# df_chargemap = df_chargemap.merge(merged, left_on='AddressInfo.Postcode', right_on='PC6', how='left')
 
-df_chargemap = df_chargemap.merge(merged, left_on='AddressInfo.Postcode', right_on='PC6', how='left')
-
-unique_chargemap = df_chargemap['AddressInfo.Town'].unique()
-gemeenten = gemeente_codes['Gemeentenaam'].unique()
-unique_gemeenten = [x for x in unique_chargemap if x in gemeenten]
+# unique_chargemap = df_chargemap['AddressInfo.Town'].unique()
+# gemeenten = gemeente_codes['Gemeentenaam'].unique()
+# unique_gemeenten = [x for x in unique_chargemap if x in gemeenten]
 
 
-map = folium.Map(location = [52.2129919, 5.2793703], zoom_start=7, tiles=None)
-base_map = folium.FeatureGroup(name='Basemap', overlay=True, control=False)
-folium.TileLayer(tiles='OpenStreetMap').add_to(base_map)
-base_map.add_to(map)
-All_markers = folium.FeatureGroup(name='all', overlay=False, control=True)
-#for index, row in df_chargemap.iterrows():
-#    All_markers.add_child(folium.Marker(location=[row['AddressInfo.Latitude'], row['AddressInfo.Longitude']],
-#                                                       popup=row['AddressInfo.AddressLine1'])).add_to(map)
-for i in merged['Gemeentenaam'].unique():
-    globals()['%s' %i] = folium.FeatureGroup(name=i, overlay = False, control = True)
-    for index, row in df_chargemap.iterrows():
-        if row['Gemeentenaam'] == i:
-            globals()['%s' %i].add_child(folium.Marker(location=[row['AddressInfo.Latitude'], row['AddressInfo.Longitude']],
-                                                       popup=row['AddressInfo.AddressLine1'])).add_to(map)
-folium.LayerControl(position='bottomleft', collapsed=False).add_to(map)
-map
-st_data = folium_static(map)
+# map = folium.Map(location = [52.2129919, 5.2793703], zoom_start=7, tiles=None)
+# base_map = folium.FeatureGroup(name='Basemap', overlay=True, control=False)
+# folium.TileLayer(tiles='OpenStreetMap').add_to(base_map)
+# base_map.add_to(map)
+# All_markers = folium.FeatureGroup(name='all', overlay=False, control=True)
+# #for index, row in df_chargemap.iterrows():
+# #    All_markers.add_child(folium.Marker(location=[row['AddressInfo.Latitude'], row['AddressInfo.Longitude']],
+# #                                                       popup=row['AddressInfo.AddressLine1'])).add_to(map)
+# for i in merged['Gemeentenaam'].unique():
+#     globals()['%s' %i] = folium.FeatureGroup(name=i, overlay = False, control = True)
+#     for index, row in df_chargemap.iterrows():
+#         if row['Gemeentenaam'] == i:
+#             globals()['%s' %i].add_child(folium.Marker(location=[row['AddressInfo.Latitude'], row['AddressInfo.Longitude']],
+#                                                        popup=row['AddressInfo.AddressLine1'])).add_to(map)
+# folium.LayerControl(position='bottomleft', collapsed=False).add_to(map)
+# map
+# st_data = folium_static(map)
 # In[10]:
 
 
