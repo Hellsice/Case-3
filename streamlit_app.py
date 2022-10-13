@@ -159,7 +159,6 @@ for i in merged['Gemeentenaam'].unique():
             globals()['%s' %i].add_child(folium.Marker(location=[row['AddressInfo.Latitude'], row['AddressInfo.Longitude']],
                                                        popup=row['AddressInfo.AddressLine1'])).add_to(map)
 folium.LayerControl(position='bottomleft', collapsed=False).add_to(map)
-map
 st_data = folium_static(map)
 # In[10]:
 
