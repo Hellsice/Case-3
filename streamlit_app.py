@@ -43,7 +43,7 @@ st.header('Elektrisch mobiliteit en laadpalen')
 st.subheader(' Team 7: Olger, Bart, Annika, Estelle') 
 ##### Inleidende tekst 
 st.text('In dit dashboard hebben wij gebruik gemaakt van de datasets OpenChargeMap, laadpaalgebruik en aantallen elektrische auto’s.')
-st.text('Hiermee hebben wij verbanden kunnen leggen over de toename van elektrische autos, tijd dat elektrische auto’s aan de laadpaal zitten.')
+st.markdown('Hiermee hebben wij verbanden kunnen leggen over de toename van elektrische autos, tijd dat elektrische auto’s aan de laadpaal zitten.')
 
 
 # In[4]:
