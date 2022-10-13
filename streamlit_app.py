@@ -131,24 +131,7 @@ df_chargemap = df_chargemap.dropna(axis=1, how='all')
 
 df_chargemap['AddressInfo.Postcode'] = df_chargemap['AddressInfo.Postcode'].str.replace(r'\D', '', regex=True)
 
-# download files: https://www.cbs.nl/-/media/_excel/2022/37/2022-cbs-pc6huisnr20210801_buurt.zip
-# https://www.cbs.nl/-/media/cbs/onze-diensten/methoden/classificaties/overig/gemeenten-alfabetisch-2022.xlsx
-# Website blocks any request to download or read files, has to be done manually
-
-
-postcode_gemeenten = pd.read_csv('pc6hnr20220801_gwb.csv', sep=';')
-postcode_gemeenten = postcode_gemeenten[['PC6', 'Gemeente2022']]
-postcode_gemeenten = postcode_gemeenten.sort_values('Gemeente2022', ignore_index=True)
-
-gemeente_codes = pd.read_excel('Gemeenten alfabetisch 2022.xlsx')
-gemeente_codes = gemeente_codes[['Gemeentecode', 'Gemeentenaam']]
-gemeente_codes = gemeente_codes.sort_values('Gemeentecode', ignore_index=True)
-
-merged = postcode_gemeenten.merge(gemeente_codes, left_on='Gemeente2022', right_on='Gemeentecode', how='right').drop('Gemeente2022', axis=1)
-merged['PC6'] = merged['PC6'].str.replace(r'\D', '', regex=True)
-merged = merged.drop_duplicates(subset='PC6').reset_index(drop=True)
-merged = merged.sort_values('Gemeentenaam').reset_index(drop=True)
-merged = merged.drop('Gemeentecode', axis=1)
+merged = pd.read_csv('merged.csv')
 
 df_chargemap = df_chargemap.merge(merged, left_on='AddressInfo.Postcode', right_on='PC6', how='left')
 
