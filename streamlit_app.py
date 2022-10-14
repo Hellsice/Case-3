@@ -284,8 +284,8 @@ st.markdown('Er zijn meerdere mappen gemaakt, de eerste geeft per gemeente aan w
 st_data = folium_static(map)
 st.markdown('De tweede map geeft dit ook weer, maar dit keer als cluster markers. Hier is ook een optie toegevoegd voor alle gemeenten tegelijk.')
 st_data = folium_static(mapcluster)
-st.markdown('Deze map is een combinatie van beide. De eerste optie geeft alle laadpalen in alle gemeentes weer als een cluster marker. De tweede optie laat je kiezen welke gemeenten je wilt laten zien.')
-st_data = folium_static(map2)
+# st.markdown('Deze map is een combinatie van beide. De eerste optie geeft alle laadpalen in alle gemeentes weer als een cluster marker. De tweede optie laat je kiezen welke gemeenten je wilt laten zien.')
+# st_data = folium_static(map2)
             
             
 #Laadpaaldata
